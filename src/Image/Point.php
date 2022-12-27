@@ -42,6 +42,13 @@ final class Point implements PointInterface
             throw new InvalidArgumentException(sprintf('A coordinate cannot be positioned outside of a bounding box (x: %s, y: %s given)', $x, $y));
         }
 
+        if (!\is_int($x)) {
+            $x = (int) round($x);
+        }
+        if (!\is_int($y)) {
+            $y = (int) round($y);
+        }
+        
         $this->x = $x;
         $this->y = $y;
     }
